@@ -234,7 +234,22 @@ $(".card .list-group").sortable({
     tasks[arrName] = tempArr;
     saveTasks();
 
-    console.log(tempArr);
+    // console.log(tempArr);
+  }
+});
+//convert trash into a droppable 
+$("#trash").droppable({
+  accept: ".card .list-group-item",
+  tolerance: "touch",
+  drop: function(event, ui) {
+    console.log("drop");
+    ui.draggable.remove();
+  },
+  over: function(event, ui) {
+    console.log("over");
+  },
+  out: function(event, ui) {
+    console.log("out");
   }
 });
 
